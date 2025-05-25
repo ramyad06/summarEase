@@ -14,19 +14,19 @@ def scrape():
         response = requests.get(full_url)
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        for row in soup.find_all('div', class_='quote'):
-            quote = row.find('span', class_='text').text
-            author = row.find('small', class_='author').text
+        for ele in soup.find_all('div', class_='quote'):
+            quote = ele.find('span', class_='text').text.lower()
+            author = ele.find('small', class_='author').text.lower()
             quotes.append({'quote': quote, 'author': author})
 
-        next_button = soup.find('li', class_='next')
-        if next_button and next_button.a:
-            url = next_button.a['href']
+        nxt_btn = soup.find('li', class_='next')
+        if nxt_btn and nxt_btn.a:
+            url = nxt_btn.a['href']
         else:
             url = None 
 
-    filename = 'quotes.csv'
-    with open(filename, 'w', newline='', encoding='utf-8') as f:
+    filename = 'quotes.csv' #create the file
+    with open(filename, 'w', newline='', encoding='utf-8') as f: #open the file
         w = csv.DictWriter(f, ['quote', 'author'])
         w.writeheader()
         for quote in quotes:
