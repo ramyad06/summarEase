@@ -1,5 +1,4 @@
-# Content-Scrapping-and-Summarizing-AI-Tool
-
+# SummarEase-Scrapping-and-Summarizing-AI-Tool
 
 A Python project to scrape articles from supported websites, summarize them using Google Gemini, and store the results in a local SQLite database. Includes a CLI for summary retrieval.
 
@@ -74,8 +73,6 @@ if __name__ == "__main__":
     create_articles_table()
     cli_menu()
 ```
-This is already present in your code.
-
 ---
 
 ## Project Structure

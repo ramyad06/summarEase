@@ -30,11 +30,6 @@ def store_article(data: dict[str, str]):
     conn.commit()
     conn.close()
 
-    
-    
-    
-    
-    
 def get_summary_by_id(article_id: int):
     conn = sqlite3.connect('articles.db')
     c = conn.cursor()
@@ -75,8 +70,6 @@ def cli_menu():
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
-
-
 
 if __name__ == "__main__":
     create_articles_table()
