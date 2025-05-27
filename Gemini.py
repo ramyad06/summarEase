@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
-
 def summarize_text(Input):
 
     client = genai.Client(api_key= api_key)
